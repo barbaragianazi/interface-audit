@@ -1,0 +1,22 @@
+{
+  "project": "Projeto Exemplo",
+  "date": "2026-01-15",
+  "scope": "Dados fictícios para demonstrar o relatório.",
+  "method": "Inspeção estática (exemplo fictício)",
+  "headline": "Formulários e navegação concentram os principais riscos.",
+  "summary": "Exemplo fictício: botões sem nome acessível, contraste insuficiente e formulário sem mensagens de erro claras limitam o uso por teclado e leitores de tela.",
+  "findings": [
+    {"id":"IA-001","title":"Botão de ícone sem nome acessível","severity":"alta","confidence":"confirmado","evidence":"src/components/Toolbar.tsx:18 — <button> contém apenas um ícone, sem texto nem aria-label.","impact":"Usuários de leitor de tela não sabem qual é a ação do botão.","recommendation":"Adicionar aria-label descritivo ou texto visualmente oculto ao botão."},
+    {"id":"IA-002","title":"Campo de formulário sem label associada","severity":"alta","confidence":"confirmado","evidence":"src/pages/Cadastro.tsx:42 — <input> usa apenas placeholder como rótulo.","impact":"O rótulo desaparece ao digitar e não é anunciado de forma confiável.","recommendation":"Associar um <label> visível ao campo por for/id."},
+    {"id":"IA-003","title":"Texto secundário com contraste baixo","severity":"media","confidence":"hipotese","evidence":"src/styles/tokens.css:7 — cor de texto #9a9a9a sobre fundo #ffffff.","impact":"Pode dificultar a leitura para pessoas com baixa visão.","recommendation":"Medir o contraste real e escurecer o texto até atingir 4.5:1."},
+    {"id":"IA-004","title":"Mensagens de erro genéricas no envio","severity":"media","confidence":"confirmado","evidence":"src/pages/Cadastro.tsx:88 — erro exibido como \"Algo deu errado\".","impact":"A pessoa não sabe o que corrigir para concluir o cadastro.","recommendation":"Indicar o campo com problema e como corrigi-lo."},
+    {"id":"IA-005","title":"Tabela sem alternativa para telas estreitas","severity":"media","confidence":"hipotese","evidence":"src/components/Tabela.tsx:12 — largura fixa de 900px, sem overflow tratado.","impact":"Possível rolagem horizontal em celulares.","recommendation":"Permitir rolagem contida na tabela ou reorganizar colunas em cartões."},
+    {"id":"IA-006","title":"Ordem de títulos inconsistente","severity":"baixa","confidence":"confirmado","evidence":"src/pages/Inicio.tsx:9 — <h1> seguido diretamente de <h4>.","impact":"A estrutura do documento fica confusa para navegação por títulos.","recommendation":"Usar níveis de título em sequência."}
+  ],
+  "coverage": [
+    {"area":"Fluxos e navegação","status":"parcial","reason":"Rotas lidas no código; sem navegação real."},
+    {"area":"Acessibilidade","status":"parcial","reason":"Semântica inspecionada; sem teste de teclado ou leitor de tela."},
+    {"area":"Responsividade","status":"nao_executada","reason":"Sem navegador para testar viewports."}
+  ],
+  "limitations": ["Exemplo fictício, sem relação com projetos reais.", "Nenhum teste em navegador foi realizado."]
+}

@@ -1,0 +1,16 @@
+# Configuração local de agentes
+.claude/settings.local.json
+.codex/
+
+# Relatórios gerados ao auditar projetos
+/interface-audit/
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node
+node_modules/
+*.log
